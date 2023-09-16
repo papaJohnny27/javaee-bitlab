@@ -15,8 +15,9 @@ public class FormServlet extends HttpServlet {
 
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
-        out.print("<label>Name: " + name + "</label>");
-        out.print("<br/>");
-        out.print("<label>Surname: "+surname+"</label>");
+        String food = req.getParameter("food");
+        out.print("<label>" + name +" "+ surname +" ordered "+ food + "</label>");
+
+
     }
 }
