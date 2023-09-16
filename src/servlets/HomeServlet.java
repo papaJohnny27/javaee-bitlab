@@ -19,33 +19,13 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        out.print("<table><thead>");
-        out.print(" <tr><th>NAME</th><th>SURNAME</th><th>DEPARTMENT</th><th>SALARY</th></tr></thead>");
-        out.print("<tbody>");
-
-        List<Employee> employees = getEmployees();
-
-        for (int i = 0; i < employees.size(); i++) {
-            Employee employee = employees.get(i);
-            out.print("<tr><td>" + employee.getName() + "</td><td>" + employee.getSurname()
-                    + "</td><td>" + employee.getDepartment() + "</td><td>" + employee.getSalary() + "</td></tr>");
-        }
-
-        out.print(" </tbody></table></body>");
+        out.print("<form action=\"form\" method=\"get\">");
+        out.print(" <label>Name:</label> <input type=\"text\" name=\"name\" />");
+        out.print("<label>Surname:</label> <input type=\"text\" name=\"surname\"/>");
+        out.print("<input type=\"submit\" value=\"send\">");
 
         out.flush();
     }
 
-    private static List<Employee> getEmployees() {
-        Employee employee = new Employee("Ilyas", "Zzhuanyshev", "IT", 550000);
-        Employee employee1 = new Employee("Aibek", "Bagit", "HR", 650000);
-        Employee employee2 = new Employee("Alibek", "Serikov", "Management", 400000);
 
-        List<Employee> employees = new ArrayList<>();
-        employees.add(employee);
-        employees.add(employee1);
-        employees.add(employee2);
-
-        return employees;
-    }
 }
